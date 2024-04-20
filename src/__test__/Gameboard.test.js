@@ -1,6 +1,11 @@
 /* eslint-disable import/no-unresolved */
-import { test, expect } from 'bun:test';
+import { test, expect, mock } from 'bun:test';
 import Gameboard from '../Classes/Gameboard';
+
+const gameBoardMock = mock((len) => ({
+	length: len,
+	hits: [],
+}));
 
 test('Static Tests', () => {
 	expect(Gameboard.createBoard()[0]).toBeArrayOfSize(10);
@@ -40,16 +45,20 @@ test('Game Test', () => {
 		[2, 1],
 		[2, 2],
 	]);
-	expect(gameBoard.board[0][3]).toEqual({ length: 5, hits: [] });
+	expect(gameBoard.board[0][3]).toEqual(gameBoardMock(5));
+	expect(gameBoard.board[7][5]).toBeFalse();
 	expect(gameBoard.receiveAttack([0, 4])).toBe('Perfect Hit!');
 	expect(gameBoard.receiveAttack([0, 4])).toBe('You shot the same place...');
 	expect(gameBoard.receiveAttack([3, 6])).toBe('You Missed!');
+	expect(gameBoard.board[3][6]).toBeTrue();
 	expect(gameBoard.receiveAttack([0, 3])).toBe('Perfect Hit!');
 	expect(gameBoard.receiveAttack([0, 2])).toBe('Perfect Hit!');
 	expect(gameBoard.receiveAttack([0, 1])).toBe('Perfect Hit!');
 	expect(gameBoard.receiveAttack([0, 5])).toBe('You sunk the opponent ship!');
-  expect(gameBoard.isAllSunk()).toBeFalse();
+	expect(gameBoard.isAllSunk()).toBeFalse();
 	expect(gameBoard.receiveAttack([2, 1])).toBe('Perfect Hit!');
-	expect(gameBoard.receiveAttack([2, 2])).toBe('You sunk all the opponent ship!');
-  expect(gameBoard.isAllSunk()).toBeTrue();
+	expect(gameBoard.receiveAttack([2, 2])).toBe(
+		'You sunk all the opponent ship!'
+	);
+	expect(gameBoard.isAllSunk()).toBeTrue();
 });
