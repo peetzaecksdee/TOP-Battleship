@@ -58,7 +58,7 @@ test('Game Test', () => {
 	expect(gameBoard.isAllSunk()).toBeFalse();
 	expect(gameBoard.receiveAttack([2, 1])).toBe('Perfect Hit!');
 	expect(gameBoard.receiveAttack([2, 2])).toBe(
-		'You sunk all the opponent ship!'
+		'You sunk all the opponent ships!'
 	);
 	expect(gameBoard.isAllSunk()).toBeTrue();
 });

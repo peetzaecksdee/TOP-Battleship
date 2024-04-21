@@ -69,7 +69,7 @@ export default class Gameboard {
 		}
 		ship.hit([x, y]);
     if (this.isAllSunk()) {
-      return 'You sunk all the opponent ship!';
+      return 'You sunk all the opponent ships!';
     }
 		if (ship.isSunk) {
 			return 'You sunk the opponent ship!';
