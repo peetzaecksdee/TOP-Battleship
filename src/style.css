@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Lobster';
+  src: url('./assets/fonts/Lobster-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --header-height: 10vh;
+  --content-height: 85vh;
+  --footer-height: 5vh;
+  --page-color: #8976cc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#content {
+  height: var(--content-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

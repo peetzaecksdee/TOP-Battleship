@@ -1,0 +1,29 @@
+footer {
+	height: var(--footer-height);
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+.credit {
+	text-align: center;
+	font-size: 0.95rem;
+}
+
+.credit-a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.credit-a > img {
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 50%;
+}
