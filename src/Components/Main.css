@@ -36,3 +36,11 @@ main {
 .occupied {
   background-color: blue;
 }
+
+.hit:not(.occupied) {
+  background-color: red;
+}
+
+.hit {
+  background-color: brown;
+}

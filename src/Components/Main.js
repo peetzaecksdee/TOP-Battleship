@@ -1,9 +1,9 @@
-import { loadBoard } from './Helper/GameController';
+import renderBoard from './Helper/BoardRenderer';
 import './Main.css';
 
 function loadMain() {
   const main = document.createElement('main');
-  main.appendChild(loadBoard());
+  main.appendChild(renderBoard());
 
   return main;
 }
