@@ -1,0 +1,11 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.header-text {
+  font-size: 4rem;
+  font-family: 'Lobster';
+}

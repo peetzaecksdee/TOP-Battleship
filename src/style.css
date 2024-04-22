@@ -5,11 +5,18 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Nunito';
+  src: url('./assets/fonts/Nunito-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --header-height: 10vh;
-  --content-height: 85vh;
+  --main-height: 85vh;
   --footer-height: 5vh;
-  --page-color: #8976cc;
+  --page-color: #cabef5;
 }
 
 * {
@@ -19,8 +26,10 @@
 }
 
 #content {
-  height: var(--content-height);
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  background-color: var(--page-color);
 }

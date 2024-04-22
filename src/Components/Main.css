@@ -1,0 +1,4 @@
+main {
+  height: var(--main-height);
+  width: 100vw;
+}
