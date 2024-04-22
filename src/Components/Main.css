@@ -1,4 +1,30 @@
 main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: var(--main-height);
   width: 100vw;
+  padding: 5rem;
+}
+
+.container {
+  display: flex;
+  gap: 15rem;
+}
+
+.board-container {
+  display: grid;
+  height: 16rem;
+  width: 16rem;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.cell {
+  border: 1px solid black;
+}
+
+.occupied {
+  background-color: blue;
 }
