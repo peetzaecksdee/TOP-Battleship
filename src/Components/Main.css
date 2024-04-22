@@ -25,6 +25,14 @@ main {
   border: 1px solid black;
 }
 
+.cell:not(.occupied):hover {
+  background-color: aliceblue;
+}
+
+.cell:hover {
+  background-color: rgb(127, 193, 255);
+}
+
 .occupied {
   background-color: blue;
 }
