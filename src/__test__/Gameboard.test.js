@@ -45,12 +45,12 @@ test('Game Test', () => {
 		[2, 1],
 		[2, 2],
 	]);
-	expect(gameBoard.board[0][3]).toEqual(gameBoardMock(5));
-	expect(gameBoard.board[7][5]).toBeFalse();
+	expect(gameBoard.gameBoard[0][3]).toEqual(gameBoardMock(5));
+	expect(gameBoard.gameBoard[7][5]).toBeFalse();
 	expect(gameBoard.receiveAttack([0, 4])).toBe('Perfect Hit!');
 	expect(gameBoard.receiveAttack([0, 4])).toBe('You shot the same place...');
 	expect(gameBoard.receiveAttack([3, 6])).toBe('You Missed!');
-	expect(gameBoard.board[3][6]).toBeTrue();
+	expect(gameBoard.gameBoard[3][6]).toBeTrue();
 	expect(gameBoard.receiveAttack([0, 3])).toBe('Perfect Hit!');
 	expect(gameBoard.receiveAttack([0, 2])).toBe('Perfect Hit!');
 	expect(gameBoard.receiveAttack([0, 1])).toBe('Perfect Hit!');

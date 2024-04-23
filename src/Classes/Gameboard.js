@@ -1,8 +1,13 @@
+/* eslint-disable consistent-return */
 import Ship from './Ship';
 
 export default class Gameboard {
 	constructor() {
 		this.board = Gameboard.createBoard();
+	}
+
+	get gameBoard() {
+		return this.board;
 	}
 
 	static createBoard() {
@@ -52,7 +57,9 @@ export default class Gameboard {
 		});
 	}
 
-	receiveAttack([x, y]) {
+	receiveAttack(coord) {
+		if (!coord) return;
+		const [x, y] = coord;
 		const ship = this.board[x][y];
 		if (
 			ship === true ||
@@ -68,9 +75,9 @@ export default class Gameboard {
 			return 'You Missed!';
 		}
 		ship.hit([x, y]);
-    if (this.isAllSunk()) {
-      return 'You sunk all the opponent ships!';
-    }
+		if (this.isAllSunk()) {
+			return 'You sunk all the opponent ships!';
+		}
 		if (ship.isSunk) {
 			return 'You sunk the opponent ship!';
 		}
