@@ -1,11 +1,14 @@
 import renderBoard from './Helper/BoardRenderer';
+import gameController from './Helper/GameController';
 import './Main.css';
 
 function loadMain() {
+  const content = document.querySelector('#content');
   const main = document.createElement('main');
   main.appendChild(renderBoard());
-
-  return main;
+  
+  content.appendChild(main);
+  gameController();
 }
 
 export default loadMain;

@@ -19,6 +19,7 @@ main {
   width: 16rem;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
+  user-select: none;
 }
 
 .cell {

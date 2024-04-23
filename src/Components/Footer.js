@@ -2,6 +2,8 @@ import "./Footer.css";
 import pizza from '../assets/images/pizza.jpg';
 
 function loadFooter() {
+  const content = document.querySelector('#content');
+
 	const footer = document.createElement("footer");
 
 	const text = document.createElement("i");
@@ -22,7 +24,7 @@ function loadFooter() {
 	footer.appendChild(text);
 	footer.appendChild(githubPage);
 
-	return footer;
+	content.appendChild(footer);
 }
 
 export default loadFooter;

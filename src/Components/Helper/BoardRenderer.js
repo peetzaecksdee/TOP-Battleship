@@ -1,5 +1,4 @@
 import Gameboard from '../../Classes/Gameboard';
-import { attack } from './GameController';
 
 function renderBoard() {
 	const gameContainer = document.createElement('div');
@@ -7,8 +6,10 @@ function renderBoard() {
 
 	const pboard = document.createElement('div');
 	pboard.classList.add('board-container');
+	pboard.id = 'player';
 	const oboard = document.createElement('div');
 	oboard.classList.add('board-container');
+	oboard.id = 'opponent';
 
 	const playerBoard = new Gameboard();
 	const opponentBoard = new Gameboard();
@@ -71,11 +72,15 @@ function renderBoard() {
 	for (let i = 0; i < 100; i += 1) {
 		const pcell = document.createElement('div');
 		const ocell = document.createElement('div');
+		pcell.dataset.cols = i % 10;
+		pcell.dataset.rows = Math.floor(i / 10);
+		ocell.dataset.cols = i % 10;
+		ocell.dataset.rows = Math.floor(i / 10);
 
-		pcell.addEventListener('click', () => {
-			attack(playerBoard, i);
-			pcell.classList.add('hit');
-		});
+		// pcell.addEventListener('click', () => {
+		// 	attack(playerBoard, i);
+		// 	pcell.classList.add('hit');
+		// });
 
 		pcell.classList.add('cell');
 		ocell.classList.add('cell');
