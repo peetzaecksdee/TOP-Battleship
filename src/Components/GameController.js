@@ -1,4 +1,5 @@
-import Gameboard from "../../Classes/Gameboard";
+import Gameboard from '../Classes/Gameboard';
+import gameTextChanger from './Helper/gameText';
 
 function init() {
 	const playerBoard = new Gameboard();
@@ -9,18 +10,21 @@ function init() {
 
 	function attack(coordinate) {
 		const board = playerTurn ? opponentBoard : playerBoard;
-		playerTurn = !playerTurn;
-		return board.receiveAttack(coordinate);
+		const feedBack = board.receiveAttack(coordinate);
+		if (feedBack !== 'You shot the same place...') playerTurn = !playerTurn;
+		gameTextChanger(feedBack);
 	}
 
 	function boardListener() {
 		document.querySelector('#player').addEventListener('mousedown', (ev) => {
 			if (!isPlayerTurn()) return;
+
 			attack([ev.target.dataset.cols, ev.target.dataset.rows]);
 			ev.target.classList.add('hit');
 		});
 		document.querySelector('#opponent').addEventListener('mousedown', (ev) => {
 			if (isPlayerTurn()) return;
+
 			attack([ev.target.dataset.cols, ev.target.dataset.rows]);
 			ev.target.classList.add('hit');
 		});

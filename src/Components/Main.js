@@ -1,5 +1,5 @@
 import renderBoard from './Helper/BoardRenderer';
-import gameController from './Helper/GameController';
+import gameController from './GameController';
 import './Main.css';
 
 function loadMain() {
